@@ -1,0 +1,39 @@
+html, body, div.photo {
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+}
+div.photo {
+	position: relative;
+}
+img {
+	min-width: 100%;
+	min-height: 100%;
+
+	width: auto;
+	height: auto;
+
+	position: fixed;
+	top: 0px;
+	left: 0px;
+
+	-webkit-transition: opacity 1s ease-in-out;
+	-moz-transition: opacity 1s ease-in-out;
+	-o-transition: opacity 1s ease-in-out;
+	-ms-transition: opacity 1s ease-in-out;
+	transition: opacity 1s ease-in-out;
+}
+img.transparent {
+	opacity: 0;
+}
+div#description {
+	position: absolute;
+	font-family: Helvetica, sans-serif;
+	font-size: 600%;
+	font-weight: bold;
+	color: white;
+	text-shadow: 1px 1px 3px #373737;
+	left: 30px;
+	bottom: 30px;
+}

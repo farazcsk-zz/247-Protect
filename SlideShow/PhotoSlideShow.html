@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Beautiful Food Slide Show</title>
+    <link rel="stylesheet" href="slideshow.css" />
+    <script>
+        var photos =[
+            "Pears.jpg",
+            "Salad.jpg",
+            "Cauliflower.jpg"
+        ];
+        var descriptions = [
+            "Asian Pears",
+            "Spinach Salad",
+            "Romanseque Cauliflower"
+        ];
+
+        var photoIndex = 0;
+        var current = "one";
+
+        function transition() {
+            photoIndex = photoIndex + 1;
+                
+            if(photoIndex >= photos.length)
+            {
+                photoIndex = 0;
+            }
+        
+
+            var currentImage = document.getElementById(current);
+
+            if (current == "one") {
+                current = "two";
+            }
+            else {
+                current = "one";
+            }
+            var newImg = document.getElementById(current);
+
+            newImg.src = photos[photoIndex];
+        
+            var div = document.getElementById("description");
+            div.innerHTML = descriptions[photoIndex];
+            
+            currentImage.setAttribute("class", "transparent"); //adding the class transparent to an img element, fires off a CSS fadding transition.
+            newImg.setAttribute("class", "");
+
+         }
+
+             
+
+        window.onload = init;
+
+        function init() {
+            var img = document.getElementById("one");
+            img.src = photos[0];
+            var div = document.getElementById("description");
+            div.innerHTML = descriptions[0];
+        }
+        window.onclick = transition; //setting onclick property of the window to transition function
+    </script>
+</head>
+<body>
+    <div class="photo">
+        <img id="one" alt="" src="" />
+        <img class="transparent" id="two" alt="" src="" />
+    </div>
+
+    <div id="description">
+        The description of Images should appear. 
+        If you cannot see the description then enable JavaScript in your Browser.
+
+    </div>
+</body>
+</html>

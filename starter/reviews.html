@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+
+    <head>
+
+        <title>247 protect</title>
+
+        <meta name="viewport" 
+              content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+        <script src="../components/webcomponentsjs/webcomponents.js">
+        </script>
+
+        <link rel="import" href="../components/font-roboto/roboto.html">
+        <link rel="import"
+              href="../components/core-header-panel/core-header-panel.html">
+        <link rel="import"
+              href="../components/core-toolbar/core-toolbar.html">
+        <link rel="import"
+              href="../components/paper-tabs/paper-tabs.html">    
+        <link rel="import"
+              href="../components/paper-tabs/paper-tabs.html">
+        <link rel="import" href="post-card.html">
+        <link href="path/to/core-icons/core-icons.html" rel="import">
+        <link rel="import" href="post-list.html">
+  
+
+        <style>
+            html,body,a {
+                height: 100%;
+                margin: 0;
+                background-color: #E5E5E5;
+                font-family: 'RobotoDraft', sans-serif;
+            }
+            core-header-panel,a {
+                height: 100%;
+                overflow: auto;
+                -webkit-overflow-scrolling: touch; 
+            }
+            core-toolbar,a {
+                background: #005FA9;
+                color: white;
+            }
+            #tabs,a {
+                width: 200%;
+                margin: 0, auto;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                text-transform: uppercase;
+            }
+            .container,a {
+                width: 200%;
+                margin: 100px auto;
+            }
+            @media (min-width: 481px) {
+                #tabs {
+                    width: 1500px;
+                }
+                .container {
+                    width: 350px;
+                }
+            }
+            a:link
+            {
+                text-decoration: none;
+            }
+        </style>
+
+
+    </head>
+
+    <body unresolved>
+
+        <core-header-panel>
+
+            <core-toolbar>
+
+
+                <paper-tabs id="tabs" selected="Reviews" self-end>
+                    <paper-tab name="Home"><a href="index.html" horizontal center-center layout>247 PROTECT</a></paper-tab>
+                    <paper-tab name="About"><a href="about-us.html" horizontal center-center layout>About</a></paper-tab>
+                    <paper-tab name="find us"><a href="find-us.html" horizontal center-center layout>Find us</a></paper-tab>
+                    <paper-tab name="Contact us"><a href="contact-us.html" horizontal center-center layout>Contact us</a></paper-tab>
+                    <paper-tab name="Gallery"><a href="Gallery.html" horizontal center-center layout>Gallery</a> </paper-tab>
+                    <paper-tab name="Reviews"><a href="reviews.html" horizontal center-center layout>Reviews</a></paper-tab>
+                </paper-tabs>
+
+            </core-toolbar>
+
+   
+            <div class="container" layout vertical center>
+                <post-list show="all"></post-list>
+            </div>
+                
+            
+          
+        </core-header-panel>
+
+        <script>
+            var tabs = document.querySelector('paper-tabs');
+            tabs.addEventListener('core-select', function() {
+                console.log("Selected: " + tabs.selected);
+            });
+        </script>
+    </body>
+
+</html>

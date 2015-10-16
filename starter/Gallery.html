@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+
+    <head>
+
+        <title>247 protect</title>
+
+        <meta name="viewport" 
+              content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+
+        <script src="../components/webcomponentsjs/webcomponents.js">
+        </script>
+
+        <link rel="import" href="../components/font-roboto/roboto.html">
+        <link rel="import"
+              href="../components/core-header-panel/core-header-panel.html">
+        <link rel="import"
+              href="../components/core-toolbar/core-toolbar.html">
+        <link rel="import"
+              href="../components/paper-tabs/paper-tabs.html">    
+        <link rel="import" href="post-list.html">
+       
+
+        <style>
+            html,body,a,div.photo {
+                height: 100%;
+                margin: 0;
+                background-color: #E5E5E5;
+                font-family: 'RobotoDraft', sans-serif;
+            }
+            core-header-panel,a {
+                height: 100%;
+                overflow: auto;
+                -webkit-overflow-scrolling: touch; 
+            }
+            core-toolbar,a {
+                background: #005FA9;
+                color: white;
+            }
+            #tabs,a {
+                width: 200%;
+                margin: 0;
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                text-transform: uppercase;
+            }
+            .container,a {
+                width: 200%;
+                margin: 100px auto;
+            }
+            @media (min-width: 481px) {
+                #tabs {
+                    width: 1500px;
+                }
+                .container {
+                    width: 350px;
+                }
+            }
+            a:link
+            {
+                text-decoration: none;
+            }
+            div.photo {
+                position: relative;
+            }
+            img {
+                min-width: 100%;
+                min-height: 100%;
+                width: 200px;
+                height: 500px;
+
+
+                position: relative;
+                top: 0px;
+                left: 0px;
+
+                -webkit-transition: opacity 1s ease-in-out;
+                -moz-transition: opacity 1s ease-in-out;
+                -o-transition: opacity 1s ease-in-out;
+                -ms-transition: opacity 1s ease-in-out;
+                transition: opacity 1s ease-in-out;
+            }
+            img.transparent {
+                opacity: 0;
+            }
+            div#description {
+                position: absolute;
+                font-size: 300%;
+                font-weight: bold;
+                color: white;
+                text-shadow: 1px 1px 3px #373737;
+                left: 30px;
+                bottom: 30px;
+                
+            }
+            
+         
+        </style>
+        
+        <script>
+            var photos =[
+                "ADT-1.jpg",
+                "ADT-2.jpg",
+                "ADT-3.jpg",
+                "cctv.jpg",
+                "dooraccess.jpg",
+                "EXTINGUISER.JPG",
+                "firealarm.jpg",
+                "intruder.jpg",
+                "man.jpg",
+                "smoke.jpg",
+                "risk.jpg"
+                
+                
+                
+                
+            ];
+            var descriptions = [
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                "",
+                ""
+                
+            ];
+           
+           
+
+            var photoIndex = 0;
+            var current = "one";
+
+            function transition() {
+                photoIndex = photoIndex + 1;
+
+                if(photoIndex >= photos.length)
+                {
+                    photoIndex = 0;
+                }
+
+
+                var currentImage = document.getElementById(current);
+
+                if (current == "one") {
+                    current = "two";
+                }
+               else {
+                    current = "one";
+                }
+              
+              
+                var newImg = document.getElementById(current);
+                
+                
+
+                newImg.src = photos[photoIndex];
+               
+
+                var div = document.getElementById("description");
+                div.innerHTML = descriptions[photoIndex];
+
+                currentImage.setAttribute("class", "transparent"); //adding the class transparent to an img element, fires off a CSS fadding transition.
+                newImg.setAttribute("class", "");
+               
+
+            }
+
+
+
+            window.onload = init;
+
+            function init() {
+                var img = document.getElementById("one");
+                img.src = photos[0];
+               
+                var div = document.getElementById("description");
+                div.innerHTML = descriptions[0];
+            }
+            window.onclick = transition; //setting onclick property of the window to transition function
+        </script>
+
+    </head>
+
+    <body unresolved>
+
+        <core-header-panel>
+
+            <core-toolbar>
+
+
+                <paper-tabs id="tabs" selected="Gallery" self-end>
+                    <paper-tab name="Home"><a href="index.html" horizontal center-center layout>247 PROTECT</a></paper-tab>
+                    <paper-tab name="About"><a href="about-us.html" horizontal center-center layout>About</a></paper-tab>
+                    <paper-tab name="find us"><a href="find-us.html" horizontal center-center layout>Find us</a></paper-tab>
+                    <paper-tab name="Contact us"><a href="contact-us.html" horizontal center-center layout>Contact us</a></paper-tab>
+                    <paper-tab name="Gallery"><a href="Gallery.html" horizontal center-center layout>Gallery</a> </paper-tab>
+                    <paper-tab name="Reviews"><a href="reviews.html" horizontal center-center layout>Reviews</a></paper-tab>
+                </paper-tabs>
+
+            </core-toolbar>
+
+            <div class="container" layout vertical center>
+
+                <post-card>
+                    
+                    <h2>We are now proud partners with ADT, be sure to take advantage of introductory discounts by getting in touch!click the link to participate!<a href="contact-us.html">Contact</a></h2>
+                    <h3>Get in touch to learn more about our products and pricing!</h3>
+                       <h4><b>Click through the slideshow to see some of the servicves we offer</b></h4>
+                        <div class="photo">
+                            <img id="one" alt="" src=""/> </div>
+                  
+                       
+                        
+                    </div>
+
+                    <div id="description">
+                        The description of Images should appear. 
+                        If you cannot see the description then enable JavaScript in your Browser.
+
+                    </div>
+                </post-card>
+            
+                
+                
+        
+                
+               
+                        <body>
+
+           
+
+        </core-header-panel>
+
+        <script>
+            var tabs = document.querySelector('paper-tabs');
+            tabs.addEventListener('core-select', function() {
+                console.log("Selected: " + tabs.selected);
+            });
+            
+     
+            
+        </script> <!-- menu -->
+        
+     
+    </body>
+
+</html>
